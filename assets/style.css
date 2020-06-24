@@ -1,0 +1,16 @@
+header{
+    display:block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+div time {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    display: block;
+}
+
+div button{
+    width: 50px;
+    height: 25px;
+}

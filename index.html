@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Quiz</title>
+    <script src="assets/script.js" defer></script>
+    <link rel="stylesheet" href="assets/style.css">
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+</head>
+
+<body>
+    <Header>
+        <h1>Answer these questions in under 3 minutes.</h1>
+    </Header>
+    <div class="container">
+        <div class="time">
+            <div id="minutes">3</div>
+            <div id="seconds">00</div>
+        </div>
+        <div class="button">
+            <button aria-label="play" id="play">
+                <i class="fa fa-play" aria-hidden="true"></i>
+            </button>
+            <button aria-label="pause" id="pause">
+                <i class="fa fa-pause" aria-hidden="true"></i>
+            </button>
+        </div>
+        <h1 id="question" data-question=""></h1>
+        <ul>
+            <li>
+                <button id="button-a" data-answer="a">A: </button>
+                <span id="answer-a"></span></li>
+            <li>
+                <button id="button-b" data-answer="b">B: </button>
+                <span id="answer-b"></span></li>
+            <li>
+                <button id="button-c" data-answer="c">C: </button>
+                <span id="answer-c"></span></li>
+            <li>
+                <button id="button-d" data-answer="d">D: </button>
+                <span id="answer-d"></span></li>
+        </ul>
+        <p id="score"></p>
+    </div>
+</body>
+
+</body>
+
+</html>
