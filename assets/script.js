@@ -39,7 +39,7 @@ function startTimer() {
 
 }
 
-function pauseTimer(){
+function pauseTimer() {
     clearInterval(interval);
     startTimer.preventDefault();
 
@@ -156,6 +156,8 @@ var buttonB = document.body.querySelector("#button-b");
 var buttonC = document.body.querySelector("#button-c");
 var buttonD = document.body.querySelector("#button-d");
 
+var buttonSubmit = document.body.querySelector('#submit');
+
 var score = document.body.querySelector("#score");
 
 var scoreActual = 0
@@ -170,22 +172,30 @@ function buttonHandler(event) {
     // console.log(questionId);
     questionList[questionId]["userAnswer"] = userAnswer;
 
+    console.log(questionList[questionId]["userAnswer"]);
+    console.log(questionList[questionId]["correct"]);
+
     if (questionList[questionId]["userAnswer"] === questionList[questionId]["correct"]) {
-        score.textContent = "You got it correct. Overall Score is " + scoreActual + "/10" ;
+        scoreActual++
+        questionIndex++;
+        score.textContent = "You got it correct. Overall Score is " + scoreActual + "/10";
         setTimeout(function () {
-            questionIndex++;
             initializeQuestion();
-            scoreActual++
             score.textContent = "";
+            console.log(questionIndex);
+            console.log(scoreActual);
         }, 2000);
     }
     else {
+        questionIndex++;
         score.textContent = "You got it wrong. Overall Score is " + scoreActual + "/10";
         setTimeout(function () {
-            questionIndex++;
             initializeQuestion();
             score.textContent = "";
         }, 2000);
+    }
+    if (questionIndex === questionList.length) {
+
     }
 }
 
@@ -214,7 +224,22 @@ function initializeQuestion() {
 initializeQuestion();
 
 // Log the question
-
-
-
-// localStorage.setItem()
+$("#addInitials").on("click", function (event) {
+    // Preventing the submit button from trying to submit the form
+    // We're optionally using a form so the user may hit Enter to search instead of clicking the button
+    event.preventDefault();
+    //get the val inputed into the search box. id set by the line
+    // <input type="text" id="topic-input">
+    var topic = $("#name").val();
+    console.log($("#name").val());
+    console.log(event.target);
+    var button = event.target;
+    var answerObject = {
+        answerT: scoreActual,
+        initails: topic
+    }
+    console.log(answerObject);
+    localStorage.setItem("score", JSON.stringify(answerObject));
+    var dataStored = JSON.parse(localStorage.getItem("score"));
+    console.log(dataStored);
+})
